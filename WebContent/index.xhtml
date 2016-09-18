@@ -5,70 +5,19 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>List Tasks</title>
-</h:head>
-<h:body>
-	<h:form id="formPrincipal">
-		  <p:messages autoUpdate="true" showDetail="true"></p:messages>
-			<p:toolbar>
-				<f:facet name="left">
-					<p:button outcome="tasks.xhtml" value="New Task"
-					icon="ui-icon-document" />
-					<p:commandButton type="button" value="List" action="#{taskBean.busca}"
-					icon="ui-icon-folder-open" update="formPrincipal:listaTarefas" />
-					<span class="ui-separator"> <span
-					class="ui-icon ui-icon-grip-dotted-vertical" />
-					</span>
-					<p:inputText></p:inputText>
-					<p:commandButton type="button" title="Find"
-					action="#{taskBean.busca}" icon="ui-icon-search" />
-				</f:facet>
-			</p:toolbar>
-			<p:dataTable value="#{taskBean.entidades}"
-				var="task" rendered="#{taskBean.busca == true}" actionListener="#{taskBean.busca}"
-				style="margin-bottom:30px" rows="10" paginator="true"
-				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-				rowsPerPageTemplate="5,10,15">>
-			<f:facet name="header">
-            	List Tasks
-        	</f:facet>
-
-			<p:column headerText="Id" sortBy="#{task.id}" style="width:35px">
-				<h:outputText value="#{task.id}" />
-			</p:column>
-
-			<p:column headerText="Start Date" sortBy="#{task.data_inicio}"
-				style="width:105px">
-				<h:outputText value="#{task.data_inicio}">
-					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
-				</h:outputText>
-			</p:column>
-
-			<p:column headerText="Descripition" sortBy="#{task.descripition}">
-				<h:outputText value="#{task.descripition}" />
-			</p:column>
-
-			<p:column headerText="Status" sortBy="#{task.status}"
-				style="width:75px">
-				<h:outputText value="#{task.status}" />
-			</p:column>
-
-			<p:column headerText="Final Date" sortBy="#{task.data_fim}"
-				style="width:105px">
-				<h:outputText value="#{task.data_fim}">
-					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
-				</h:outputText>
-			</p:column>
-
-			<p:column headerText="Action" style="width:95px">
-				<p:button outcome="edit.xhtml" type="button" title="Edit"
-					icon="ui-icon-pencil" />
-				<p:commandButton type="button" title="Delete"
-					oncomplete="deletaTask.show()" actionListener="#{taskBean.deletar(task)}"
-					update=":displayDeletaTask" icon="ui-icon-trash" />
-			</p:column>
-		</p:dataTable>
-	</h:form>
-</h:body>
+    <h:head>
+        <title>System Tasks</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        	<p:fieldset legend="System Tasks">
+            <p:menubar>
+                <p:menuitem value="User Managed" url="user.xhtml"></p:menuitem>
+                <p:menuitem value="Task Managed" url="tasks.xhtml"></p:menuitem>
+            </p:menubar>
+            </p:fieldset>
+        </h:form>
+        <hr/>
+        <ui:insert></ui:insert>
+    </h:body>
 </html>

@@ -6,7 +6,9 @@ import org.hibernate.Session;
 
 import br.com.estudo.control.HibernateUtil;
 import br.com.estudo.control.TaskBean;
+import br.com.estudo.control.UserBean;
 import br.com.estudo.model.TaskImp;
+import br.com.estudo.model.UserImp;
 
 public class Teste {
 
@@ -18,11 +20,13 @@ public class Teste {
 	
        
 		
-		TaskImp  taskImp = new TaskImp();
-		TaskBean taskBean = new TaskBean();
+		UserImp taskImp = new UserImp();
+		UserBean taskBean = new UserBean();
 		
-		taskImp.setDescripition("Teste de Descripition 2");
-		taskImp.setStatus("Pending");
+		taskImp.setLogin("luizddaniel");
+		taskImp.setEmail("luizddaniel@hotmail.com");
+		taskImp.setNome("Luiz");
+		taskImp.setPassword("luiz2850");
  
 		//taskBean.salvar();		
 		//realizando operação para salvar no banco

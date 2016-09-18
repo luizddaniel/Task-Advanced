@@ -25,7 +25,7 @@ public class Login implements PhaseListener {
 	public String doLogin() throws ServletException, IOException {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 
-        RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/teste.xhtml");
+        RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/index.xhtml");
 
         dispatcher.forward((ServletRequest) context.getRequest(), (ServletResponse) context.getResponse());
 
