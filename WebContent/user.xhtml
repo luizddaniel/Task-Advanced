@@ -16,8 +16,9 @@
 				<p:toolbarGroup>
 					<p:commandButton value="New User" icon="ui-icon-document" action="#{userBean.novo()}" disabled="#{userBean.inseri == true}" update="@form"></p:commandButton>
 					<p:commandButton value="List" icon="ui-icon-search" onclick="#{userBean.buscar()}" actionListener="#{userBean.buscar()}" disabled="#{userBean.inseri == true}" update="@form"></p:commandButton>
-					<span class="ui-separator"> <span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
-				</p:toolbarGroup>
+					<span class="ui-separator"> <span class="ui-icon ui-icon-grip-dotted-vertical"/></span>
+					<p:button outcome="index.xhtml" value="Exit" icon="ui-icon-extlink" update="@form"></p:button>	
+					</p:toolbarGroup>
 			</p:toolbar>
 			<p:panelGrid columns="2" rendered="#{userBean.busca == false}">
 				<h:outputLabel for="nome" value="Name"></h:outputLabel>
@@ -29,8 +30,8 @@
 				<h:outputLabel for="login" value="Login"></h:outputLabel>
 				<p:inputText id="login" value="#{userBean.entidade.login}" placeholder="Login"/>
 				
-				<h:outputLabel for="email" value="Password"></h:outputLabel>
-				<p:password id="email" value="#{userBean.entidade.password}" style="width:610px" placeholder="Password"></p:password>
+				<h:outputLabel for="password" value="Password"></h:outputLabel>
+				<p:password id="password" value="#{userBean.entidade.password}" style="width:610px" placeholder="Password"></p:password>
 				
 				<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{userBean.salvar()}" update="@form"></p:commandButton>
 				<p:commandButton value="Cancel" icon="ui-icon-trash" action="#{userBean.buscar()}" update="@form"></p:commandButton>

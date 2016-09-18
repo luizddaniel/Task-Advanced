@@ -15,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import br.com.estudo.model.UserImp;
+
 
 
 @ManagedBean
@@ -22,7 +24,9 @@ import javax.servlet.ServletResponse;
 public class Login implements PhaseListener {
 
 	
+	
 	public String doLogin() throws ServletException, IOException {
+		
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 
         RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/index.xhtml");

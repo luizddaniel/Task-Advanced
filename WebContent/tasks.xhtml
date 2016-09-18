@@ -17,6 +17,7 @@
 					<p:commandButton value="New Task" icon="ui-icon-document" action="#{taskBean.novo()}" disabled="#{taskBean.inseri == true}" update="@form"></p:commandButton>
 					<p:commandButton value="List" icon="ui-icon-search" onclick="#{taskBean.buscar()}" actionListener="#{taskBean.buscar()}" disabled="#{taskBean.inseri == true}" update="@form"></p:commandButton>
 					<span class="ui-separator"> <span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+						<p:button outcome="index.xhtml" value="Exit" icon="ui-icon-extlink" update="@form"></p:button>
 				</p:toolbarGroup>
 			</p:toolbar>
 			<p:panelGrid columns="2" rendered="#{taskBean.busca == false}">

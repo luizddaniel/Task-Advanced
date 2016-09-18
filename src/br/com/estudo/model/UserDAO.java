@@ -12,13 +12,13 @@ public class UserDAO implements CrudDAO<UserImp> {
 	private Session session;
 
 	@Override
-	public void salvar(UserImp entidade) throws Error {
+	public void salvar(UserImp userImp) throws Error {
 
 		session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(entidade);
+			session.saveOrUpdate(userImp);
 			session.getTransaction().commit();
 
 		} finally {
@@ -28,14 +28,14 @@ public class UserDAO implements CrudDAO<UserImp> {
 	}
 
 	@Override
-	public void deletar(UserImp entidade) throws Error {
+	public void deletar(UserImp userImp) throws Error {
 
 		session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			session.delete(entidade);
+			session.delete(userImp);
 			session.getTransaction().commit();
 
 		} finally {
@@ -46,12 +46,12 @@ public class UserDAO implements CrudDAO<UserImp> {
 	}
 
 	@Override
-	public void editar(UserImp entidade) throws Error {
+	public void editar(UserImp userImp) throws Error {
 		session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(entidade);
+			session.saveOrUpdate(userImp);
 			session.getTransaction().commit();
 
 		} finally {
@@ -66,7 +66,7 @@ public class UserDAO implements CrudDAO<UserImp> {
 		session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
-			Criteria cri = session.createCriteria(TaskImp.class);
+			Criteria cri = session.createCriteria(UserImp.class);
 			return cri.list();
 		} finally {
 			session.close();
